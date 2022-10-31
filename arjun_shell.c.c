@@ -83,18 +83,7 @@ int check_run_command(wordexp_t we)
 
 void print_header()
 {
-  printf("\e[1;1H\e[2J");
-  printf(BLU "Welcome to\n\n" RESET);
-  printf(GRN "██████   █████  ███████ ██   ██\n");
-  printf("██   ██ ██   ██ ██      ██   ██\n");
-  printf("██████   █████  ███████ ███████\n");
-  printf("██      ██   ██      ██ ██   ██\n");
-  printf("██       █████  ███████ ██   ██\n\n" RESET);
-  printf(
-    BLU "Available commands:" RESET
-    YEL "\n\tcd, pwd, history, echo, ls, cat, date, mkdir, rm, exit\n\n"
-    RESET
-  );
+  printf("\n\n ARJUN's SHELL\n\n");
 }
 
 int main(int argc, char *argv[])
@@ -109,7 +98,7 @@ int main(int argc, char *argv[])
   int ERR = 0;
   do
   {
-    printf(BLU "\n%s%s\np8sh ❯  " RESET, working_dirs.current, ERR == 0 ? GRN : RED);
+    printf("\n$"));
     char command[MAX_INP_SIZE];
 
     fgets(command, MAX_INP_SIZE, stdin);
@@ -130,7 +119,7 @@ int main(int argc, char *argv[])
     }
 
     if ((ERR = check_run_command(we)) == -1)
-      fprintf(stderr, RED "p8sh: %s: command not found\n%s", we.we_wordv[0], RESET);
+      fprintf(stderr,"$: %s: command not found\n%s", we.we_wordv[0],);
 
     wordfree(&we);
   }
