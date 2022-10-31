@@ -2,13 +2,13 @@ CC = gcc
 CC_FLAGS = -o
 ODIR = bin
 
-all: prepare p8sh cat rm ls mkdir date
+all: prepare shell cat rm ls mkdir date
 
 prepare:
 	mkdir -p bin
 
-p8sh: p8sh.c
-	$(CC) $(CC_FLAGS) p8sh p8sh.c -lm
+shell: arjun_shell.c
+	$(CC) $(CC_FLAGS) shell arjun_shell.c -lm
 
 cat: external/cat.c
 	$(CC) $(CC_FLAGS) $(ODIR)/cat external/cat.c -lm
@@ -25,7 +25,3 @@ mkdir: external/mkdir.c
 date: external/date.c
 	$(CC) $(CC_FLAGS) $(ODIR)/date external/date.c
 
-clean:
-	rm -r p8sh .p8sh_history bin
-
-.PHONY: clean
